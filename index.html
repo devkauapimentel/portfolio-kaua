@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<!--
+  Portfólio - Kauã Pimentel
+  Atividade Prática de Desenvolvimento Web
+  Uninter - 2025
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio pessoal de Kauã Pimentel - Desenvolvedor Full Stack e estudante de Engenharia de Software na Uninter.">
+  <meta name="author" content="Kauã Pimentel">
+  <meta name="keywords" content="portfólio, desenvolvedor, full stack, engenharia de software, web developer">
+
+  <title>Kauã Pimentel | Portfólio</title>
+
+  <!-- fontes do google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header / Nav -->
+  <header id="header" class="header">
+    <nav class="nav" aria-label="Navegação principal">
+      <div class="nav__container">
+
+        <!-- logo -->
+        <a href="#hero" class="nav__logo" aria-label="Ir para o início">
+          <span class="nav__logo-bracket">&lt;</span>
+          <span class="nav__logo-name">devkaua</span>
+          <span class="nav__logo-bracket">/<span style="margin-left: 4px;">&gt;</span></span>
+        </a>
+
+        <!-- menu de nav -->
+        <ul class="nav__menu" id="nav-menu" role="menubar">
+          <li class="nav__item" role="none">
+            <a href="#sobre" class="nav__link" role="menuitem" data-i18n="nav-sobre">Sobre mim</a>
+          </li>
+          <li class="nav__item" role="none">
+            <a href="#formacao" class="nav__link" role="menuitem" data-i18n="nav-formacao">Formação</a>
+          </li>
+          <li class="nav__item" role="none">
+            <a href="#portfolio" class="nav__link" role="menuitem" data-i18n="nav-portfolio">Portfólio</a>
+          </li>
+          <li class="nav__item" role="none">
+            <a href="#contato" class="nav__link" role="menuitem" data-i18n="nav-contato">Contato</a>
+          </li>
+        </ul>
+
+        <div class="nav__actions">
+          <div class="nav__toggles" style="display: flex; gap: 16px; align-items: center; margin-right: 16px;">
+            
+            <!-- buy me a coffee -->
+            <div class="nav__bmc" style="display: flex; align-items: center;">
+              <a href="https://www.buymeacoffee.com/devkauapimh" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px; background-color: #FFDD00; color: #000000; font-family: var(--font-main); font-weight: 700; font-size: 0.85rem; padding: 6px 14px; border-radius: 20px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 10px rgba(255, 221, 0, 0.2);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 15px rgba(255, 221, 0, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(255, 221, 0, 0.2)';">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+                <span data-i18n="nav-bmc">Buy me a coffee</span>
+              </a>
+            </div>
+
+            <!-- dropdown de idioma -->
+            <div class="lang-dropdown" style="position: relative;">
+              <button id="lang-toggle" onclick="toggleLangMenu()" class="nav__lang-btn" aria-label="Toggle Language" title="Mudar Idioma" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 6px 14px; color: var(--text-primary); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 4px; font-weight: 600; font-family: var(--font-main); height: 32px; box-shadow: none;">
+                <span class="lang-text" id="current-lang-label" style="line-height: 1; padding-top: 2px;">PT</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lang-icon" style="margin-top: 2px;"><path d="m6 9 6 6 6-6"></path></svg>
+              </button>
+              
+              <ul id="lang-menu" style="display: none; position: absolute; top: calc(100% + 10px); right: 0; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 8px 0; margin: 0; list-style: none; min-width: 160px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 100;">
+                <li onclick="selectLanguage('pt')" style="padding: 10px 16px; cursor: pointer; font-size: 0.85rem; display: flex; gap: 8px; align-items: center; color: var(--text-primary); transition: background 0.2s;" onmouseover="this.style.background='var(--bg-card-hover)'; this.style.color='var(--accent-primary)';" onmouseout="this.style.background='transparent'; this.style.color='var(--text-primary)';"><span style="font-weight: 700; min-width: 20px;">PT</span> <span style="color: var(--text-muted);">Portuguese</span></li>
+                <li onclick="selectLanguage('en')" style="padding: 10px 16px; cursor: pointer; font-size: 0.85rem; display: flex; gap: 8px; align-items: center; color: var(--text-primary); transition: background 0.2s;" onmouseover="this.style.background='var(--bg-card-hover)'; this.style.color='var(--accent-primary)';" onmouseout="this.style.background='transparent'; this.style.color='var(--text-primary)';"><span style="font-weight: 700; min-width: 20px;">EN</span> <span style="color: var(--text-muted);">English</span></li>
+              </ul>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+              <svg class="theme-toggle__icon theme-toggle__icon--sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg class="theme-toggle__icon theme-toggle__icon--moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- menu mobile -->
+          <button id="nav-toggle" class="nav__toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-menu">
+            <span class="nav__toggle-bar"></span>
+            <span class="nav__toggle-bar"></span>
+            <span class="nav__toggle-bar"></span>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="hero">
+    <div class="hero__container">
+      <div class="hero__content">
+        <div class="hero__badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+          <span data-i18n="hero-badge">Bem-vindo ao meu portfólio</span>
+        </div>
+
+        <h1 class="hero__title">Kauã <span class="hero__highlight">Pimentel</span></h1>
+        <p class="hero__subtitle">
+          <span class="hero__bracket">&lt; </span><span id="typing-text" class="hero__typing" aria-live="polite"></span><span class="hero__cursor" aria-hidden="true">|</span><span class="hero__bracket"> /&gt;</span>
+        </p>
+        
+        <ul class="hero__bullets">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+            <span data-i18n="hero-bullet-1">Estudante de Engenharia de Software na Uninter</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span data-i18n="hero-bullet-2">Desenvolvimento Web Full Stack</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            <span data-i18n="hero-bullet-3">Arquitetura e Resolução de Problemas (Xadrez)</span>
+          </li>
+        </ul>
+        
+        <!-- botões -->
+        <div class="hero__buttons">
+          <a href="#portfolio" class="btn btn--primary" data-i18n="hero-btn-portfolio">Ver Projetos</a>
+          <a href="#contato" class="btn btn--outline" data-i18n="hero-btn-contact">Fale Comigo</a>
+        </div>
+        <!-- redes sociais -->
+        <div class="hero__social">
+          <a href="https://github.com/devkauapimentel" target="_blank" rel="noopener noreferrer" class="hero__social-link" aria-label="GitHub de Kauã" title="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/devkauapimentel/" target="_blank" rel="noopener noreferrer" class="hero__social-link" aria-label="LinkedIn de Kauã" title="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://instagram.com/devkauapimentel" target="_blank" rel="noopener noreferrer" class="hero__social-link" aria-label="Instagram de Kauã" title="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- bloco de código decorativo -->
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__code-block">
+          <div class="hero__code-header">
+            <span class="hero__code-dot hero__code-dot--red"></span>
+            <span class="hero__code-dot hero__code-dot--yellow"></span>
+            <span class="hero__code-dot hero__code-dot--green"></span>
+            <span class="hero__code-file">sobre_mim.js</span>
+          </div>
+          <pre class="hero__code-content"><code><span class="code-keyword">const</span> <span class="code-variable">kaua</span> = {
+  <span class="code-property">nome</span>: <span class="code-string">"Kauã Pimentel"</span>,
+  <span class="code-property">local</span>: <span class="code-string">"Duque de Caxias, RJ"</span>,
+  <span class="code-property">curso</span>: <span class="code-string">"Eng. de Software"</span>,
+  <span class="code-property">hobbies</span>: [
+    <span class="code-string">"♟️ Xadrez"</span>,
+    <span class="code-string">"🎸 Rock &amp; Lofi"</span>,
+    <span class="code-string">"📚 Ficção &amp; Teologia"</span>,
+    <span class="code-string">"🏀 Basquete"</span>
+  ],
+  <span class="code-property">aprendendo</span>: <span class="code-keyword">true</span>
+};</code></pre>
+        </div>
+      </div>
+    </div>
+    <!-- scroll indicator -->
+    <div class="hero__scroll-wrapper">
+      <a href="#sobre" class="hero__scroll" aria-label="Rolar para seção Sobre Mim">
+        <div class="hero__mouse" aria-hidden="true">
+          <div class="hero__mouse-wheel"></div>
+        </div>
+        <span class="hero__scroll-arrow" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- Seção Sobre Mim -->
+    <section id="sobre" class="section sobre">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__number" aria-hidden="true">01</span>
+          <h2 class="section__title" data-i18n="sobre-title">Sobre mim</h2>
+          <div class="section__line" aria-hidden="true"></div>
+        </div>
+
+        <div class="sobre__container">
+          
+          <!-- foto com efeito glow -->
+          <div class="sobre__image-wrapper">
+            <div class="sobre__glow"></div>
+            <img src="profile_photo.PNG" alt="Foto de Kauã Pimentel" class="sobre__image">
+          </div>
+
+          <div class="sobre__content">
+            <div class="sobre__badge">
+              <span data-i18n="sobre-badge">Full Stack Developer</span>
+            </div>
+            <h3 class="sobre__main-title" data-i18n="sobre-main-title">Transformando ideias em soluções digitais excepcionais</h3>
+            <p class="sobre__text" data-i18n="sobre-text-1">
+              Olá! Sou o <strong>Kauã Pimentel</strong>, de Duque de Caxias, RJ. Sou apaixonado por criar interfaces elegantes e soluções web funcionais e escaláveis.
+            </p>
+            <p class="sobre__text" data-i18n="sobre-text-2">
+              Atualmente cursando <strong>Engenharia de Software</strong> na Uninter. Uma das coisas que mais gosto de fazer no meu tempo livre (além de jogar xadrez e ler) é aprender novas linguagens de programação e testar novas arquiteturas de desenvolvimento.
+            </p>
+            <p class="sobre__text" data-i18n="sobre-text-3">
+              Se quiser trocar uma ideia, pode me mandar um e-mail na seção de contato abaixo.
+            </p>
+
+            <div class="sobre__actions">
+              <a href="#portfolio" class="btn btn--outline" data-i18n="hero-btn-portfolio">Ver Projetos</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- hobbies -->
+        <div class="sobre__hobbies">
+          <h3 class="sobre__hobbies-title" data-i18n="sobre-hobbies-title" style="margin-top: 60px; text-align: center;">Meus Hobbies</h3>
+            <div class="sobre__hobbies-grid">
+              <div class="hobby-card">
+                <span class="hobby-card__icon" aria-hidden="true">♟️</span>
+                <h4 class="hobby-card__title" data-i18n="hobby-chess-title">Xadrez</h4>
+                <p class="hobby-card__desc" data-i18n="hobby-chess-desc">Estratégia e raciocínio lógico que aplico na programação.</p>
+              </div>
+              <!-- musica -->
+              <div class="hobby-card">
+                <span class="hobby-card__icon" aria-hidden="true">🎸</span>
+                <h4 class="hobby-card__title" data-i18n="hobby-music-title">Música</h4>
+                <p class="hobby-card__desc" data-i18n="hobby-music-desc">Rock, Lofi e Música Clássica — trilhas que me inspiram e acompanham no dia a dia.</p>
+              </div>
+              <div class="hobby-card">
+                <span class="hobby-card__icon" aria-hidden="true">📚</span>
+                <h4 class="hobby-card__title" data-i18n="hobby-reading-title">Leitura</h4>
+                <p class="hobby-card__desc" data-i18n="hobby-reading-desc">Ficção literária e obras teológicas expandem minha criatividade e visão de mundo.</p>
+              </div>
+              <div class="hobby-card">
+                <span class="hobby-card__icon" aria-hidden="true">🏀</span>
+                <h4 class="hobby-card__title" data-i18n="hobby-basketball-title">Basquete</h4>
+                <p class="hobby-card__desc" data-i18n="hobby-basketball-desc">Trabalho em equipe e disciplina dentro e fora da quadra.</p>
+              </div>
+              <div class="hobby-card">
+                <span class="hobby-card__icon" aria-hidden="true">✝️</span>
+                <h4 class="hobby-card__title" data-i18n="hobby-theology-title">Teologia</h4>
+                <p class="hobby-card__desc" data-i18n="hobby-theology-desc">Estudo da fé e reflexões que nutrem minha vida espiritual e intelectual.</p>
+              </div>
+              <div class="hobby-card">
+                <span class="hobby-card__icon" aria-hidden="true">🚀</span>
+                <h4 class="hobby-card__title" data-i18n="hobby-learn-title">Aprender</h4>
+                <p class="hobby-card__desc" data-i18n="hobby-learn-desc">Sempre em busca de novos conhecimentos e desafios.</p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Seção Formação -->
+    <section id="formacao" class="section formacao">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__number" aria-hidden="true">02</span>
+          <h2 class="section__title" data-i18n="formacao-title">Formação</h2>
+          <div class="section__line" aria-hidden="true"></div>
+        </div>
+
+        <div class="formacao__grid">
+          <!-- formação acadêmica -->
+          <div class="formacao__column">
+            <h3 class="formacao__subtitle" data-i18n="formacao-academic-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 6 3 6 3s3 0 6-3v-5"/></svg>
+              Formação Acadêmica
+            </h3>
+            <!-- timeline -->
+            <div class="timeline">
+              <div class="timeline__item">
+                <div class="timeline__dot" aria-hidden="true"></div>
+                <div class="timeline__content">
+                  <span class="timeline__badge" data-i18n="timeline-badge-in-progress">Em andamento</span>
+                  <h4 class="timeline__title" data-i18n="timeline-course-1-title">Engenharia de Software</h4>
+                  <p class="timeline__institution" data-i18n="timeline-course-1-inst">Uninter — Centro Universitário Internacional</p>
+                  <p class="timeline__period" data-i18n="timeline-course-1-period">2025 – Presente · 2º Semestre</p>
+                  <p class="timeline__desc" data-i18n="timeline-course-1-desc">Curso focado em desenvolvimento de software, 
+                  engenharia de requisitos e metodologias ágeis. Aprendendo muito sobre arquitetura de sistemas.</p>
+                </div>
+              </div>
+              <div class="timeline__item">
+                <div class="timeline__dot" aria-hidden="true"></div>
+                <div class="timeline__content">
+                  <h4 class="timeline__title" data-i18n="timeline-course-2-title">Ensino Médio Completo</h4>
+                  <p class="timeline__institution" data-i18n="timeline-course-2-inst">Saber Sistema de Ensino</p>
+                  <p class="timeline__period" data-i18n="timeline-course-2-period">Concluído</p>
+                  <p class="timeline__desc" data-i18n="timeline-course-2-desc">Formação completa. Sempre gostei mais das matérias de exatas 
+                  e lógica, o que acabou me levando pra programação.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- cursos e certificações -->
+          <div class="formacao__column">
+            <h3 class="formacao__subtitle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Cursos & Certificações
+            </h3>
+            <div class="curso-card">
+              <div class="curso-card__icon" aria-hidden="true">🚀</div>
+              <div class="curso-card__content">
+                <h4 class="curso-card__title">Fullstack JavaScript</h4>
+                <p class="curso-card__institution">Rocketseat</p>
+                <p class="curso-card__desc">Formação em desenvolvimento web com JavaScript cobrindo 
+                front-end, back-end e banco de dados. Foi onde aprendi bastante coisa na prática.</p>
+              </div>
+            </div>
+
+            <!-- idiomas -->
+            <h3 class="formacao__subtitle formacao__subtitle--idiomas">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              Idiomas
+            </h3>
+            <div class="idioma-card">
+              <div class="idioma-card__header">
+                <span class="idioma-card__flag" aria-hidden="true">🇧🇷</span>
+                <div>
+                  <h4 class="idioma-card__title">Português</h4>
+                  <p class="idioma-card__level">Nativo</p>
+                </div>
+              </div>
+              <div class="idioma-card__bar">
+                <div class="idioma-card__fill" style="width: 100%;" aria-label="Nível nativo"></div>
+              </div>
+            </div>
+            <div class="idioma-card">
+              <div class="idioma-card__header">
+                <span class="idioma-card__flag" aria-hidden="true">🇺🇸</span>
+                <div>
+                  <h4 class="idioma-card__title">Inglês</h4>
+                  <p class="idioma-card__level">Intermediário-Avançado (B2)</p>
+                </div>
+              </div>
+              <div class="idioma-card__bar">
+                <div class="idioma-card__fill" style="width: 75%;" aria-label="Nível B2"></div>
+              </div>
+              <p class="idioma-card__detail">English Beyond with John English — Nível B2</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- tecnologias -->
+        <h3 class="formacao__subtitle formacao__subtitle--skills" style="margin-top: 40px; text-align: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              Tecnologias
+            </h3>
+            
+            <div class="skills-cards-grid">
+              <div class="skill-card">
+                <div class="skill-card__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                </div>
+                <h4 class="skill-card__title">HTML5 & CSS3</h4>
+                <p class="skill-card__subtitle">Frontend</p>
+                <div class="skill-card__progress-container">
+                  <div class="skill-card__progress-bar" style="width: 90%;"></div>
+                </div>
+                <div class="skill-card__level">
+                  <span>Level</span>
+                  <span>Avançado</span>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-card__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <h4 class="skill-card__title">JavaScript</h4>
+                <p class="skill-card__subtitle">Languages</p>
+                <div class="skill-card__progress-container">
+                  <div class="skill-card__progress-bar" style="width: 80%;"></div>
+                </div>
+                <div class="skill-card__level">
+                  <span>Level</span>
+                  <span>Intermediário</span>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-card__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </div>
+                <h4 class="skill-card__title">Node.js</h4>
+                <p class="skill-card__subtitle">Backend</p>
+                <div class="skill-card__progress-container">
+                  <div class="skill-card__progress-bar" style="width: 70%;"></div>
+                </div>
+                <div class="skill-card__level">
+                  <span>Level</span>
+                  <span>Intermediário</span>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-card__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                </div>
+                <h4 class="skill-card__title">SQL</h4>
+                <p class="skill-card__subtitle">Database</p>
+                <div class="skill-card__progress-container">
+                  <div class="skill-card__progress-bar" style="width: 60%;"></div>
+                </div>
+                <div class="skill-card__level">
+                  <span>Level</span>
+                  <span>Básico</span>
+                </div>
+              </div>
+              
+              <div class="skill-card">
+                <div class="skill-card__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" y1="9" x2="6" y2="21"></line></svg>
+                </div>
+                <h4 class="skill-card__title">Git & GitHub</h4>
+                <p class="skill-card__subtitle">Tools</p>
+                <div class="skill-card__progress-container">
+                  <div class="skill-card__progress-bar" style="width: 85%;"></div>
+                </div>
+                <div class="skill-card__level">
+                  <span>Level</span>
+                  <span>Avançado</span>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-card__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                </div>
+                <h4 class="skill-card__title">VS Code</h4>
+                <p class="skill-card__subtitle">IDE</p>
+                <div class="skill-card__progress-container">
+                  <div class="skill-card__progress-bar" style="width: 95%;"></div>
+                </div>
+                <div class="skill-card__level">
+                  <span>Level</span>
+                  <span>Avançado</span>
+                </div>
+              </div>
+            </div>
+      </div>
+    </section>
+
+    <!-- Seção Portfólio -->
+    <section id="portfolio" class="section portfolio">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__number" aria-hidden="true">03</span>
+          <h2 class="section__title" data-i18n="portfolio-title">Portfólio</h2>
+          <div class="section__line" aria-hidden="true"></div>
+        </div>
+
+        <p class="portfolio__intro" data-i18n="portfolio-intro">
+          Uma seleção dos meus projetos mais recentes. Todos os códigos-fonte 
+          estão disponíveis no meu <a href="https://github.com/devkauapimentel" target="_blank" rel="noopener noreferrer">GitHub</a>.
+        </p>
+
+        <!-- grid de projetos -->
+        <div class="portfolio__grid">
+
+          <!-- EsteticaFlow 2.0 -->
+          <article class="project-card">
+            <div class="project-card__header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="project-card__folder" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              <div class="project-card__links">
+                <a href="https://github.com/devkauapimentel/EsteticaFLow-2.0" target="_blank" rel="noopener noreferrer" aria-label="Ver código no GitHub" title="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title">EsteticaFlow 2.0</h3>
+            <p class="project-card__desc" data-i18n="proj-1-desc">Sistema web completo para gerenciamento de clínicas de estética, com agendamento, controle de clientes e dashboard.</p>
+            <div class="project-card__tags">
+              <span>JavaScript</span>
+              <span>HTML</span>
+              <span>CSS</span>
+            </div>
+          </article>
+
+          <!-- Lead Miner -->
+          <article class="project-card">
+            <div class="project-card__header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="project-card__folder" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              <div class="project-card__links">
+                <a href="https://github.com/devkauapimentel/Lead-Miner" target="_blank" rel="noopener noreferrer" aria-label="Ver código no GitHub" title="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title">Lead Miner</h3>
+            <p class="project-card__desc" data-i18n="proj-2-desc">Ferramenta de mineração e captação de leads para marketing digital, automatizando o processo de prospecção.</p>
+            <div class="project-card__tags">
+              <span>JavaScript</span>
+              <span>Automação</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="project-card__folder" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              <div class="project-card__links">
+                <a href="https://github.com/devkauapimentel/Studium-Liberum" target="_blank" rel="noopener noreferrer" aria-label="Ver código no GitHub" title="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title">Studium Liberum</h3>
+            <p class="project-card__desc" data-i18n="proj-3-desc">Plataforma educacional para organização e acompanhamento de estudos de forma livre e personalizada.</p>
+            <div class="project-card__tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="project-card__folder" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              <div class="project-card__links">
+                <a href="https://github.com/devkauapimentel/Life-Quest" target="_blank" rel="noopener noreferrer" aria-label="Ver código no GitHub" title="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title">Life Quest</h3>
+            <p class="project-card__desc" data-i18n="proj-4-desc">Aplicação gamificada de produtividade que transforma tarefas do dia a dia em missões e conquistas.</p>
+            <div class="project-card__tags">
+              <span>JavaScript</span>
+              <span>Gamificação</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="project-card__folder" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              <div class="project-card__links">
+                <a href="https://github.com/devkauapimentel/Projeto-Portal-De-Noticias" target="_blank" rel="noopener noreferrer" aria-label="Ver código no GitHub" title="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title">Portal de Notícias</h3>
+            <p class="project-card__desc" data-i18n="proj-5-desc">Portal de notícias responsivo com layout moderno, categorias e sistema de navegação intuitivo.</p>
+            <div class="project-card__tags">
+              <span>HTML</span>
+              <span>CSS</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="project-card__folder" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              <div class="project-card__links">
+                <a href="https://github.com/devkauapimentel/Travelgram" target="_blank" rel="noopener noreferrer" aria-label="Ver código no GitHub" title="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title">Travelgram</h3>
+            <p class="project-card__desc" data-i18n="proj-6-desc">Rede social inspirada no Instagram focada em viagens, com perfil de usuário e galeria de fotos.</p>
+            <div class="project-card__tags">
+              <span>HTML</span>
+              <span>CSS</span>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="portfolio__more">
+          <a href="https://github.com/devkauapimentel?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn--outline" data-i18n="portfolio-more">
+            Ver todos os projetos no GitHub →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contato" class="section contato">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__number" aria-hidden="true">04</span>
+          <h2 class="section__title" data-i18n="contato-title">Contato</h2>
+          <div class="section__line" aria-hidden="true"></div>
+        </div>
+
+        <div class="contato__grid">
+          <!-- info de contato -->
+          <div class="contato__info">
+            <h3 class="contato__subtitle" data-i18n="contato-subtitle">Vamos conversar?</h3>
+            <p class="contato__text" data-i18n="contato-text">
+              Se quiser trocar uma ideia sobre algum projeto, colaboração 
+              ou oportunidade, é só mandar mensagem!
+            </p>
+
+            <div class="contato__cards">
+              <div class="contato__card">
+                <div class="contato__card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <h4 class="contato__card-title" data-i18n="contato-email-title">E-mail</h4>
+                  <a href="mailto:devkauapimentel@gmail.com" class="contato__card-value">devkauapimentel@gmail.com</a>
+                </div>
+              </div>
+              <div class="contato__card">
+                <div class="contato__card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <h4 class="contato__card-title" data-i18n="contato-local-title">Localização</h4>
+                  <p class="contato__card-value">Duque de Caxias, RJ - Brasil</p>
+                </div>
+              </div>
+              <div class="contato__card">
+                <div class="contato__card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </div>
+                <div>
+                  <h4 class="contato__card-title" data-i18n="contato-linkedin-title">LinkedIn</h4>
+                  <a href="https://www.linkedin.com/in/devkauapimentel/" target="_blank" rel="noopener noreferrer" class="contato__card-value">/in/devkauapimentel</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- formulário -->
+          <div class="contato__form-wrapper">
+            <form id="contact-form" class="contato__form" novalidate>
+              <div class="form-group">
+                <label for="contact-name" class="form-group__label" data-i18n="form-name-label">Nome completo *</label>
+                <input 
+                  type="text" 
+                  id="contact-name" 
+                  name="nome" 
+                  class="form-group__input" 
+                  data-i18n="form-name-placeholder"
+                  placeholder="Seu nome completo"
+                  required
+                  autocomplete="name"
+                >
+                <span class="form-group__error" id="name-error" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-group__label" data-i18n="form-email-label">E-mail *</label>
+                <input 
+                  type="email" 
+                  id="contact-email" 
+                  name="email" 
+                  class="form-group__input" 
+                  data-i18n="form-email-placeholder"
+                  placeholder="seu@email.com"
+                  required
+                  autocomplete="email"
+                >
+                <span class="form-group__error" id="email-error" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-group__label" data-i18n="form-message-label">Mensagem *</label>
+                <textarea 
+                  id="contact-message" 
+                  name="mensagem" 
+                  class="form-group__input form-group__textarea" 
+                  data-i18n="[placeholder]form-message-placeholder"
+                  placeholder="Escreva sua mensagem aqui..."
+                  rows="5"
+                  required
+                ></textarea>
+                <span class="form-group__error" id="message-error" role="alert" aria-live="polite"></span>
+              </div>
+
+              <button type="submit" id="contact-submit" class="btn btn--primary btn--full" data-i18n="form-submit">
+                <span class="btn__text">Enviar Mensagem</span>
+                <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- modal de sucesso do formulário -->
+  <div id="success-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal__overlay" id="modal-overlay"></div>
+    <div class="modal__content">
+      <div class="modal__icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <h3 id="modal-title" class="modal__title" data-i18n="modal-title">Mensagem enviada com sucesso!</h3>
+      <p class="modal__text" data-i18n="modal-text">Obrigado por entrar em contato. Responderei sua mensagem o mais breve possível.</p>
+      <button id="modal-close" class="btn btn--primary" data-i18n="modal-close-btn">Fechar</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <p class="footer__text" data-i18n="footer-text">
+          &copy; <span id="current-year">2025</span> <strong>Kauã Pimentel</strong>. Todos os direitos reservados.
+        </p>
+        <p class="footer__credit" data-i18n="footer-credit">
+          Desenvolvido com ❤️ usando HTML5, CSS3 e JavaScript (sem framework!).
+        </p>
+        <div class="footer__social">
+          <a href="https://github.com/devkauapimentel" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/devkauapimentel/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://instagram.com/devkauapimentel" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- voltar ao topo -->
+  <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
