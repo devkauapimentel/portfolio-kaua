@@ -42,7 +42,7 @@ git clone https://github.com/devkauapimentel/portfolio-kaua.git
 
 Tem alguma ideia de projeto ou quer trocar conhecimento? Fique à vontade para me contatar:
 
-- **Email:** (Adicione seu email de contato na página)
+- **Email:** devkauapimentel@gmail.com
 - **GitHub:** [@devkauapimentel](https://github.com/devkauapimentel)
 
 ---
