@@ -317,14 +317,15 @@ body.light-theme .theme-toggle__icon--moon {
 /* botao principal com gradiente */
 .btn--primary {
   background: var(--accent-gradient);
-  color: #0f172a;
+  color: #ffffff;
+  font-weight: 600;
   box-shadow: 0 4px 15px var(--accent-glow);
 }
 
 .btn--primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 25px var(--accent-glow);
-  color: #0f172a;
+  color: #ffffff;
 }
 
 /* botao outline */
