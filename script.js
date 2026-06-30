@@ -261,19 +261,10 @@ document.addEventListener('DOMContentLoaded', function () {
   // efeito de digitação (typewriter)
   const typingElement = document.getElementById('typing-text');
 
+  // efeito digitação (typewriter) no hero
   const typingTextsDict = {
-    pt: [
-      'Desenvolvedor Full Stack',
-      'Estudante de Eng. de Software',
-      'Apaixonado por Tecnologia',
-      'Jogador de Xadrez ♟️'
-    ],
-    en: [
-      'Full Stack Developer',
-      'Software Eng. Student',
-      'Passionate about Technology',
-      'Chess Player ♟️'
-    ]
+    pt: ['Engenharia de Software', 'Arquitetura de Sistemas', 'Código Limpo e Escalável'],
+    en: ['Software Engineering', 'Systems Architecture', 'Clean & Scalable Code']
   };
 
   let textIndex = 0;
