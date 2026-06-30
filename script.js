@@ -52,7 +52,7 @@ const translations = {
   'hobby-chess-title': { pt: 'Xadrez', en: 'Chess' },
   'hobby-chess-desc': { pt: 'Estratégia e raciocínio lógico que aplico na programação.', en: 'Strategy and logical reasoning that I apply to programming.' },
   'hobby-music-title': { pt: 'Música', en: 'Music' },
-  'hobby-music-desc': { pt: 'Rock, Lofi e Música Clássica — trilhas que me inspiram e acompanham no dia a dia.', en: 'Rock, Lofi, and Classical Music — soundtracks that inspire and accompany me daily.' },
+  'hobby-music-desc': { pt: 'Rock, Lofi e Música Clássica - trilhas que me inspiram e acompanham no dia a dia.', en: 'Rock, Lofi, and Classical Music - soundtracks that inspire and accompany me daily.' },
   'hobby-reading-title': { pt: 'Leitura', en: 'Reading' },
   'hobby-reading-desc': { pt: 'Ficção literária e obras teológicas expandem minha criatividade e visão de mundo.', en: 'Literary fiction and theological works expand my creativity and worldview.' },
   'hobby-basketball-title': { pt: 'Basquete', en: 'Basketball' },
@@ -67,7 +67,7 @@ const translations = {
   'formacao-academic-title': { pt: 'Formação Acadêmica', en: 'Academic Education' },
   'timeline-badge-in-progress': { pt: 'Em andamento', en: 'In progress' },
   'timeline-course-1-title': { pt: 'Engenharia de Software', en: 'Software Engineering' },
-  'timeline-course-1-inst': { pt: 'Uninter — Centro Universitário Internacional', en: 'Uninter — International University Center' },
+  'timeline-course-1-inst': { pt: 'Uninter - Centro Universitário Internacional', en: 'Uninter - International University Center' },
   'timeline-course-1-period': { pt: '2025 – Presente · 2º Semestre', en: '2025 – Present · 2nd Semester' },
   'timeline-course-1-desc': { 
     pt: 'Curso focado em desenvolvimento de software, engenharia de requisitos e metodologias ágeis. Aprendendo muito sobre arquitetura de sistemas.', 
@@ -91,7 +91,7 @@ const translations = {
   'lang-pt-level': { pt: 'Nativo', en: 'Native' },
   'lang-en-title': { pt: 'Inglês', en: 'English' },
   'lang-en-level': { pt: 'Intermediário-Avançado (B2)', en: 'Upper-Intermediate (B2)' },
-  'lang-en-detail': { pt: 'English Beyond with John English — Nível B2', en: 'English Beyond with John English — B2 Level' },
+  'lang-en-detail': { pt: 'English Beyond with John English - Nível B2', en: 'English Beyond with John English - B2 Level' },
   'formacao-skills-title': { pt: 'Tecnologias', en: 'Technologies' },
 
   // Portfólio
@@ -241,7 +241,21 @@ document.addEventListener('DOMContentLoaded', function () {
   navToggle.addEventListener('click', toggleMenu);
 
   navLinks.forEach(function (link) {
-    link.addEventListener('click', closeMenu);
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      closeMenu();
+      var targetId = this.getAttribute('href').substring(1);
+      var targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        // revela elementos escondidos dentro da seção
+        targetSection.querySelectorAll('.scroll-reveal').forEach(function(el) {
+          el.classList.add('scroll-reveal--visible');
+        });
+        var headerEl = targetSection.querySelector('.section__header');
+        if (headerEl) headerEl.classList.add('scroll-reveal--visible');
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   });
 
   // efeito de digitação (typewriter)
