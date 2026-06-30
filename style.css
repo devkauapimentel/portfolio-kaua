@@ -3,7 +3,7 @@
   CSS Principal - Fundamentos da Programação Web (Uninter)
 */
 
-/* --- Reset --- */
+/* Reset */
 *,
 *::before,
 *::after {
@@ -12,7 +12,7 @@
   box-sizing: border-box;
 }
 
-/* --- Variaveis CSS --- */
+/* Variaveis CSS */
 :root {
   /* cores do tema escuro (padrao) */
   --bg-primary: #0f172a;
@@ -55,7 +55,7 @@
   --transition-slow: 0.5s ease;
 }
 
-/* --- Tema Claro --- */
+/* Tema Claro */
 body.light-theme {
   --bg-primary: #f5f5fa;
   --bg-secondary: #eeeef5;
@@ -127,7 +127,7 @@ img {
   border-radius: 4px;
 }
 
-/* --- Header e Navegação --- */
+/* Header e Navegação */
 .header {
   position: fixed;
   top: 0;
@@ -297,7 +297,7 @@ body.light-theme .theme-toggle__icon--moon {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* --- Botões --- */
+/* Botões */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -344,7 +344,7 @@ body.light-theme .theme-toggle__icon--moon {
   width: 100%;
 }
 
-/* --- Seção Hero --- */
+/* Seção Hero */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -747,7 +747,7 @@ body.light-theme .code-string { color: #50a14f; }
   }
 }
 
-/* --- Seções --- */
+/* Seções */
 .section {
   padding: var(--section-padding);
   position: relative;
@@ -786,7 +786,7 @@ body.light-theme .code-string { color: #50a14f; }
   max-width: 300px;
 }
 
-/* --- Seção Sobre Mim --- */
+/* Seção Sobre Mim */
 
 .sobre__container {
   display: grid;
@@ -939,9 +939,15 @@ body.light-theme .code-string { color: #50a14f; }
 }
 
 .hobby-card__icon {
-  font-size: 1.8rem;
-  display: block;
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--accent-primary);
+  margin-bottom: 14px;
 }
 
 .hobby-card__title {
@@ -956,7 +962,7 @@ body.light-theme .code-string { color: #50a14f; }
   line-height: 1.5;
 }
 
-/* --- Seção Formação --- */
+/* Seção Formação */
 .formacao__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1091,7 +1097,14 @@ body.light-theme .code-string { color: #50a14f; }
 }
 
 .curso-card__icon {
-  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--accent-primary);
   flex-shrink: 0;
 }
 
@@ -1264,7 +1277,7 @@ body.light-theme .code-string { color: #50a14f; }
 }
 
 
-/* --- Seção Portfólio --- */
+/* Seção Portfólio */
 .portfolio__intro {
   color: var(--text-secondary);
   font-size: 1.05rem;
@@ -1389,7 +1402,7 @@ body.light-theme .code-string { color: #50a14f; }
   margin-top: 50px;
 }
 
-/* --- Seção Contato --- */
+/* Seção Contato */
 .contato__grid {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -1609,7 +1622,7 @@ a.contato__card-value:hover {
   line-height: 1.6;
 }
 
-/* --- Footer --- */
+/* Footer */
 .footer {
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-subtle);
@@ -1695,7 +1708,7 @@ a.contato__card-value:hover {
   box-shadow: 0 6px 25px var(--accent-glow);
 }
 
-/* --- Animações de Scroll --- */
+/* Animações de Scroll */
 .scroll-reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -1707,7 +1720,7 @@ a.contato__card-value:hover {
   transform: translateY(0);
 }
 
-/* --- Responsividade --- */
+/* Responsividade */
 
 /* botoes flutuantes idioma e coffee */
 .fab-container {

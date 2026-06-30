@@ -4,7 +4,7 @@
   Fundamentos da Programação Web - Uninter
 */
 
-// --- dicionário de traduções ---
+// dicionário de traduções
 const translations = {
   // Menu
   'nav-sobre': { pt: 'Sobre mim', en: 'About me' },
@@ -192,12 +192,12 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// --- DOMContentLoaded - inicializa tudo ---
+// DOMContentLoaded - inicializa tudo
 document.addEventListener('DOMContentLoaded', function () {
 
   setLanguage(currentLanguage);
 
-  // --- toggle de tema ---
+  // toggle de tema
   const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
 
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
   loadTheme();
   themeToggle.addEventListener('click', toggleTheme);
 
-  // --- menu hamburger (mobile) ---
+  // menu hamburger (mobile)
   const navToggle = document.getElementById('nav-toggle');
   const navMenu = document.getElementById('nav-menu');
   const navLinks = document.querySelectorAll('.nav__link');
@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function () {
     link.addEventListener('click', closeMenu);
   });
 
-  // --- efeito de digitação (typewriter) ---
+  // efeito de digitação (typewriter)
   const typingElement = document.getElementById('typing-text');
 
   const typingTextsDict = {
@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   typeWriter();
 
-  // --- validação do formulário de contato ---
+  // validação do formulário de contato
   const contactForm = document.getElementById('contact-form');
   const nameInput = document.getElementById('contact-name');
   const emailInput = document.getElementById('contact-email');
@@ -394,7 +394,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // --- envio do formulário (simulação) ---
+  // envio do formulário (simulação)
   contactForm.addEventListener('submit', function (event) {
     event.preventDefault();
     // console.log('enviando formulário...');
@@ -414,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // --- modal de sucesso ---
+  // modal de sucesso
   const modal = document.getElementById('success-modal');
   const modalOverlay = document.getElementById('modal-overlay');
   const modalClose = document.getElementById('modal-close');
@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // --- scroll spy - link ativo no menu ---
+  // scroll spy - link ativo no menu
   const sections = document.querySelectorAll('.section');
 
   /* usa IntersectionObserver pra detectar qual seção tá visível */
@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', function () {
     scrollSpyObserver.observe(section);
   });
 
-  // --- sombra no header ao rolar ---
+  // sombra no header ao rolar
   const header = document.getElementById('header');
 
   window.addEventListener('scroll', function () {
@@ -479,7 +479,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // --- botão voltar ao topo ---
+  // botão voltar ao topo
   const backToTop = document.getElementById('back-to-top');
 
   // mostra o botão quando scroll > 500px
@@ -499,7 +499,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // --- scroll reveal (animações de entrada) ---
+  // scroll reveal (animações de entrada)
   const revealElements = document.querySelectorAll(
     '.section__header, .sobre__content, .sobre__hobbies, ' +
     '.formacao__column, .project-card, .contato__info, ' +
