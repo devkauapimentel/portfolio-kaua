@@ -12,7 +12,7 @@ const translations = {
   'nav-portfolio': { pt: 'Portfólio', en: 'Portfolio' },
   'nav-contato': { pt: 'Contato', en: 'Contact' },
 
-  'hero-badge': { pt: 'Arquitetando a Excelência em Software', en: 'Architecting Excellence in Software' },
+  'hero-badge': { pt: 'Código sólido e impacto real', en: 'Solid code and real impact' },
   'nav-bmc': { pt: 'Me pague um café', en: 'Buy me a coffee' },
   'hero-greeting': { pt: 'Olá, eu sou', en: 'Hello, I am' },
   'hero-bullet-1': { pt: 'Formação em Engenharia de Software (Uninter)', en: 'Software Engineering (Uninter)' },
@@ -261,10 +261,19 @@ document.addEventListener('DOMContentLoaded', function () {
   // efeito de digitação (typewriter)
   const typingElement = document.getElementById('typing-text');
 
-  // efeito digitação (typewriter) no hero
   const typingTextsDict = {
-    pt: ['Engenharia de Software', 'Arquitetura de Sistemas', 'Código Limpo e Escalável'],
-    en: ['Software Engineering', 'Systems Architecture', 'Clean & Scalable Code']
+    pt: [
+      'Desenvolvedor Full Stack',
+      'Estudante de Eng. de Software',
+      'Apaixonado por Tecnologia',
+      'Jogador de Xadrez ♟️'
+    ],
+    en: [
+      'Full Stack Developer',
+      'Software Eng. Student',
+      'Passionate about Technology',
+      'Chess Player ♟️'
+    ]
   };
 
   let textIndex = 0;
