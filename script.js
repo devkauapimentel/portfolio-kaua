@@ -12,7 +12,7 @@ const translations = {
   'nav-portfolio': { pt: 'Portfólio', en: 'Portfolio' },
   'nav-contato': { pt: 'Contato', en: 'Contact' },
 
-  'hero-badge': { pt: 'Código sólido e impacto real', en: 'Solid code and real impact' },
+  'hero-badge': { pt: 'Resolvendo problemas reais através do software', en: 'Solving real problems through software' },
   'nav-bmc': { pt: 'Me pague um café', en: 'Buy me a coffee' },
   'hero-greeting': { pt: 'Olá, eu sou', en: 'Hello, I am' },
   'hero-bullet-1': { pt: 'Formação em Engenharia de Software (Uninter)', en: 'Software Engineering (Uninter)' },
