@@ -12,12 +12,12 @@ const translations = {
   'nav-portfolio': { pt: 'Portfólio', en: 'Portfolio' },
   'nav-contato': { pt: 'Contato', en: 'Contact' },
 
-  'hero-badge': { pt: 'Arquitetando código com precisão e lógica', en: 'Architecting code with precision and logic' },
+  'hero-badge': { pt: 'Arquitetando a Excelência em Software', en: 'Architecting Excellence in Software' },
   'nav-bmc': { pt: 'Me pague um café', en: 'Buy me a coffee' },
   'hero-greeting': { pt: 'Olá, eu sou', en: 'Hello, I am' },
-  'hero-bullet-1': { pt: 'Estudante de Engenharia de Software na Uninter', en: 'Software Engineering Student at Uninter' },
-  'hero-bullet-2': { pt: 'Desenvolvimento Web Full Stack', en: 'Full Stack Web Development' },
-  'hero-bullet-3': { pt: 'Arquitetura e Resolução de Problemas (Xadrez)', en: 'Architecture & Problem Solving (Chess)' },
+  'hero-bullet-1': { pt: 'Formação em Engenharia de Software (Uninter)', en: 'Software Engineering (Uninter)' },
+  'hero-bullet-2': { pt: 'Desenvolvimento de Sistemas Full Stack', en: 'Full Stack Systems Development' },
+  'hero-bullet-3': { pt: 'Raciocínio Lógico e Visão Estratégica', en: 'Logical Reasoning & Strategic Vision' },
   'hero-description': { 
     pt: 'Construindo software com propósito. Unindo lógica, arquitetura e código limpo para resolver problemas reais.', 
     en: 'Building software with purpose. Combining logic, architecture, and clean code to solve real problems.' 
