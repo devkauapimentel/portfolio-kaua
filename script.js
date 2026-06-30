@@ -68,7 +68,7 @@ const translations = {
   'timeline-badge-in-progress': { pt: 'Em andamento', en: 'In progress' },
   'timeline-course-1-title': { pt: 'Engenharia de Software', en: 'Software Engineering' },
   'timeline-course-1-inst': { pt: 'Uninter - Centro Universitário Internacional', en: 'Uninter - International University Center' },
-  'timeline-course-1-period': { pt: '2025 – Presente · 2º Semestre', en: '2025 – Present · 2nd Semester' },
+  'timeline-course-1-period': { pt: '2026 – Presente · 2º Semestre', en: '2026 – Present · 2nd Semester' },
   'timeline-course-1-desc': { 
     pt: 'Curso focado em desenvolvimento de software, engenharia de requisitos e metodologias ágeis. Aprendendo muito sobre arquitetura de sistemas.', 
     en: 'Course focused on software development, requirements engineering, and agile methodologies. Learning a lot about systems architecture.' 
@@ -132,8 +132,8 @@ const translations = {
 
   // Footer
   'footer-text': { 
-    pt: '&copy; 2025 <strong>Kauã Pimentel</strong>. Todos os direitos reservados.', 
-    en: '&copy; 2025 <strong>Kauã Pimentel</strong>. All rights reserved.' 
+    pt: '&copy; 2026 <strong>Kauã Pimentel</strong>. Todos os direitos reservados.', 
+    en: '&copy; 2026 <strong>Kauã Pimentel</strong>. All rights reserved.' 
   },
   'footer-credit': { pt: 'Desenvolvido com ❤️ usando HTML5, CSS3 e JavaScript.', en: 'Developed with ❤️ using HTML5, CSS3, and JavaScript.' },
 
