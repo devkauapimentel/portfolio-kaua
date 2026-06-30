@@ -457,29 +457,21 @@ document.addEventListener('DOMContentLoaded', function () {
   // scroll spy - link ativo no menu
   const sections = document.querySelectorAll('.section');
 
-  /* usa IntersectionObserver pra detectar qual seção tá visível */
-  const scrollSpyObserver = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          navLinks.forEach(function (link) {
-            link.classList.remove('nav__link--active');
-          });
-          const activeLink = document.querySelector('.nav__link[href="#' + entry.target.id + '"]');
-          if (activeLink) {
-            activeLink.classList.add('nav__link--active');
-          }
-        }
-      });
-    },
-    {
-      threshold: 0.3,
-      rootMargin: '-80px 0px -50% 0px'
-    }
-  );
+  window.addEventListener('scroll', function() {
+    let current = '';
+    sections.forEach(function(section) {
+      const sectionTop = section.offsetTop;
+      if (window.scrollY >= (sectionTop - 250)) {
+        current = section.getAttribute('id');
+      }
+    });
 
-  sections.forEach(function (section) {
-    scrollSpyObserver.observe(section);
+    navLinks.forEach(function(link) {
+      link.classList.remove('nav__link--active');
+      if (link.getAttribute('href').substring(1) === current) {
+        link.classList.add('nav__link--active');
+      }
+    });
   });
 
   // sombra no header ao rolar
