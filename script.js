@@ -12,7 +12,7 @@ const translations = {
   'nav-portfolio': { pt: 'Portfólio', en: 'Portfolio' },
   'nav-contato': { pt: 'Contato', en: 'Contact' },
 
-  'hero-badge': { pt: 'Bem-vindo ao meu portfólio', en: 'Welcome to my portfolio' },
+  'hero-badge': { pt: 'Construindo soluções, não apenas código', en: 'Building solutions, not just code' },
   'nav-bmc': { pt: 'Me pague um café', en: 'Buy me a coffee' },
   'hero-greeting': { pt: 'Olá, eu sou', en: 'Hello, I am' },
   'hero-bullet-1': { pt: 'Estudante de Engenharia de Software na Uninter', en: 'Software Engineering Student at Uninter' },
