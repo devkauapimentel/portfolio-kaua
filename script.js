@@ -19,8 +19,8 @@ const translations = {
   'hero-bullet-2': { pt: 'Desenvolvimento Web Full Stack', en: 'Full Stack Web Development' },
   'hero-bullet-3': { pt: 'Arquitetura e Resolução de Problemas (Xadrez)', en: 'Architecture & Problem Solving (Chess)' },
   'hero-description': { 
-    pt: 'Estudante de Engenharia de Software apaixonado por tecnologia, xadrez e teologia. Transformando ideias em código, um projeto de cada vez.', 
-    en: 'Software Engineering student passionate about technology, chess, and theology. Turning ideas into code, one project at a time.' 
+    pt: 'Construindo software com propósito. Unindo lógica, arquitetura e código limpo para resolver problemas reais.', 
+    en: 'Building software with purpose. Combining logic, architecture, and clean code to solve real problems.' 
   },
   'hero-btn-portfolio': { pt: 'Ver Projetos', en: 'View Projects' },
   'hero-btn-contact': { pt: 'Fale Comigo', en: 'Contact Me' },
@@ -30,16 +30,16 @@ const translations = {
   'sobre-badge': { pt: 'Full Stack Developer', en: 'Full Stack Developer' },
   'sobre-main-title': { pt: 'Transformando ideias em soluções digitais excepcionais', en: 'Transforming ideas into exceptional digital solutions' },
   'sobre-text-1': { 
-    pt: 'Olá! Sou o <strong>Kauã Pimentel</strong>, de <strong>Duque de Caxias, Rio de Janeiro</strong>. Sou apaixonado por criar interfaces elegantes e soluções web funcionais e escaláveis.', 
-    en: 'Hello! I am <strong>Kauã Pimentel</strong>, from <strong>Duque de Caxias, Rio de Janeiro</strong>. I am passionate about creating elegant interfaces and functional, scalable web solutions.' 
+    pt: 'Olá! Sou o <strong>Kauã Pimentel</strong>. Mais do que escrever linhas de código, meu foco é entender o problema e arquitetar a melhor solução.', 
+    en: 'Hello! I am <strong>Kauã Pimentel</strong>. More than writing lines of code, my focus is understanding the problem and architecting the best solution.' 
   },
   'sobre-text-2': { 
-    pt: 'Atualmente cursando <strong>Engenharia de Software</strong> na Uninter. Uma das coisas que mais gosto de fazer no meu tempo livre (além de jogar xadrez e ler) é aprender novas linguagens de programação e testar novas arquiteturas de desenvolvimento.', 
-    en: 'Currently studying <strong>Software Engineering</strong> at Uninter. One of my favorite things to do in my free time (besides playing chess and reading) is learning new programming languages and testing new development architectures.' 
+    pt: 'Atualmente curso <strong>Engenharia de Software</strong> e, quando não estou programando, estou afiando minha lógica no tabuleiro de xadrez ou explorando novas stacks.', 
+    en: 'Currently studying <strong>Software Engineering</strong> and, when I am not programming, I am sharpening my logic on the chessboard or exploring new stacks.' 
   },
   'sobre-text-3': { 
-    pt: 'Se quiser trocar uma ideia, pode me mandar um e-mail na seção de contato abaixo.', 
-    en: 'If you want to chat, feel free to send me an email in the contact section below.' 
+    pt: 'Tem um desafio ou projeto em mente? Vamos construir algo incrível juntos.', 
+    en: 'Have a challenge or project in mind? Let\'s build something amazing together.' 
   },
   'sobre-info-nome-label': { pt: 'Nome:', en: 'Name:' },
   'sobre-info-local-label': { pt: 'Localização:', en: 'Location:' },
@@ -50,9 +50,9 @@ const translations = {
   // Hobbies
   'sobre-hobbies-title': { pt: 'Meus Hobbies', en: 'My Hobbies' },
   'hobby-chess-title': { pt: 'Xadrez', en: 'Chess' },
-  'hobby-chess-desc': { pt: 'Estratégia e raciocínio lógico que aplico na programação.', en: 'Strategy and logical reasoning that I apply to programming.' },
+  'hobby-chess-desc': { pt: 'Visão estratégica e antecipação de problemas - do tabuleiro para o código.', en: 'Strategic vision and problem anticipation - from the board to the code.' },
   'hobby-music-title': { pt: 'Música', en: 'Music' },
-  'hobby-music-desc': { pt: 'Rock, Lofi e Música Clássica - trilhas que me inspiram e acompanham no dia a dia.', en: 'Rock, Lofi, and Classical Music - soundtracks that inspire and accompany me daily.' },
+  'hobby-music-desc': { pt: 'Rock, Lofi e foco. A trilha sonora perfeita para longas sessões de código.', en: 'Rock, Lofi, and focus. The perfect soundtrack for long coding sessions.' },
   'hobby-reading-title': { pt: 'Leitura', en: 'Reading' },
   'hobby-reading-desc': { pt: 'Ficção literária e obras teológicas expandem minha criatividade e visão de mundo.', en: 'Literary fiction and theological works expand my creativity and worldview.' },
   'hobby-basketball-title': { pt: 'Basquete', en: 'Basketball' },
@@ -112,8 +112,8 @@ const translations = {
 
   // Contato
   'contato-title': { pt: 'Contato', en: 'Contact' },
-  'contato-subtitle': { pt: 'Vamos conversar?', en: 'Let\'s talk?' },
-  'contato-text': { pt: 'Se quiser trocar uma ideia sobre algum projeto, colaboração ou oportunidade, é só mandar mensagem!', en: 'If you want to chat about a project, collaboration, or opportunity, just send me a message!' },
+  'contato-subtitle': { pt: 'Vamos construir juntos?', en: 'Let\'s build together?' },
+  'contato-text': { pt: 'Tem um desafio técnico, uma ideia de projeto ou uma oportunidade? Me mande uma mensagem e vamos conversar!', en: 'Have a technical challenge, a project idea, or an opportunity? Send me a message and let\'s talk!' },
   'contato-email-title': { pt: 'E-mail', en: 'Email' },
   'contato-local-title': { pt: 'Localização', en: 'Location' },
   'contato-local-value': { pt: 'Duque de Caxias, RJ - Brasil', en: 'Duque de Caxias, RJ - Brazil' },
